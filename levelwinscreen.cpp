@@ -35,14 +35,10 @@ void LevelWinScreen::run(sf::RenderWindow& window) {
                 break;
             }
             case sf::Event::MouseButtonPressed: {
-                if (nextButton.getGlobalBounds().contains((sf::Vector2f) sf::Mouse::getPosition(window))) {
+                if (containsMouse(window, nextButton)) {
                     response = NEXT;
                     return;
-                    //                    Game game(window);
-                    //                    game.run(window);
-                    //                    window.setMouseCursorVisible(true);
-                } else if (quitButton.getGlobalBounds().contains((sf::Vector2f) sf::Mouse::getPosition(window))) {
-                    //                    window.close();
+                } else if (containsMouse(window, quitButton)) {
                     response = EXIT;
                     return;
                 }

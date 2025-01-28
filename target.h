@@ -34,7 +34,7 @@ public:
     void setTextureCentered(const sf::Texture& texture);
 private:
     sf::Vector2f direction;
-    int healtPoints;
+    int healthPoints;
 };
 
 #endif // TARGET_H

@@ -1,12 +1,12 @@
 #include <iostream>
-#include "game.h"
-#include "mainmenu.h"
+#include "gamescreen.h"
+#include "mainmenuscreen.h"
 #include "config.h"
 
 int main()
 {
     Config::init();
-    MainMenu menu;
+    MainMenuScreen menu;
     menu.run();
 //    Game game;
 //    game.run();

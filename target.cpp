@@ -4,12 +4,12 @@
 
 Target::Target() :
     direction(0,0),
-    healtPoints(1)
+    healthPoints(1)
 {}
 Target::Target(const sf::Texture &texture) :
     sf::Sprite(texture),
     direction(0,0),
-    healtPoints(1)
+    healthPoints(1)
 {
     setCentered(*this);
 }
@@ -148,36 +148,36 @@ void Target::moveStepReverse() {
 
 
 void Target::setHP(int hp) {
-    healtPoints = hp;
+    healthPoints = hp;
 }
 void Target::hit() {
-    healtPoints--;
+    healthPoints--;
     if (Config::graphicsMode == Config::GraphicsMode::NEW) {
-        if (healtPoints == 3) {
+        if (healthPoints == 3) {
             this->setTexture(Config::target3HPTexture);
             this->setScale(0.125, 0.125);
-        } else if (healtPoints == 2) {
+        } else if (healthPoints == 2) {
             this->setTexture(Config::target2HPTexture);
             this->setScale(0.10, 0.10);
-        } else if (healtPoints == 1) {
+        } else if (healthPoints == 1) {
             this->setTexture(Config::targetTexture);
             this->setScale(0.075, 0.075);
         }
     } else {
-        if (healtPoints == 3) {
+        if (healthPoints == 3) {
             this->setTexture(Config::target3HPTexture);
             this->setScale(0.4, 0.4);
-        } else if (healtPoints == 2) {
+        } else if (healthPoints == 2) {
             this->setTexture(Config::target2HPTexture);
             this->setScale(0.3, 0.3);
-        } else if (healtPoints == 1) {
+        } else if (healthPoints == 1) {
             this->setTexture(Config::targetTexture);
             this->setScale(0.2, 0.2);
         }
     }
 }
 bool Target::isDead() {
-    return healtPoints <= 0;
+    return healthPoints <= 0;
 }
 void Target::randomizeDirection() {
     float speed = sqrt(sqr(direction.x) + sqr(direction.y));
